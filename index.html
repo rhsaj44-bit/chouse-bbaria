@@ -46,6 +46,37 @@
                 <h2>অ্যাডভান্সড রিপোর্ট</h2>
                 <!-- Analytics charts/tables will go here -->
             </div>
+            <!-- Booking Modal -->
+            <div id="booking-modal" style="display:none; position:fixed; top:10%; left:50%; transform:translate(-50%, 0); background:white; padding:20px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:1000; width:90%; max-width:400px;">
+                <h3 id="modal-room-title" style="margin-top:0;">রুম বুকিং</h3>
+                <input type="hidden" id="modal-room-no">
+                
+                <label>অতিথির নাম *</label>
+                <input type="text" id="guest-name" placeholder="নাম লিখুন">
+                
+                <label>অফিস / ঠিকানা *</label>
+                <input type="text" id="guest-office" placeholder="অফিস/ঠিকানা">
+                
+                <label>ক্যাটাগরি *</label>
+                <select id="guest-category" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:4px;">
+                    <option value="Govt">সরকারি কর্মকর্তা</option>
+                    <option value="Auto">স্বায়ত্তশাসিত প্রতিষ্ঠানের কর্মকর্তা</option>
+                    <option value="Private">বেসরকারি ব্যক্তিবর্গ / কর্মকর্তা</option>
+                </select>
+                
+                <label>পেমেন্ট স্ট্যাটাস *</label>
+                <select id="payment-status" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:4px;">
+                    <option value="Payable">Payable (বিলযোগ্য)</option>
+                    <option value="Not Payable">Not Payable (বিনা ভাড়া)</option>
+                </select>
+                
+                <div style="display:flex; justify-content:space-between; margin-top:15px;">
+                    <button onclick="app.closeModal()" style="background:#e74c3c; width:48%;">বাতিল</button>
+                    <button onclick="app.submitBooking()" style="background:#27ae60; width:48%;">বুক করুন</button>
+                </div>
+            </div>
+            <!-- Background Overlay for Modal -->
+            <div id="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
         </main>
     </div>
 
