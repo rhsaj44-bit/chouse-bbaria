@@ -1,0 +1,21 @@
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { margin: 0; background: #f0f2f5; }
+
+.container { display: none; }
+.active-view { display: block !important; }
+
+/* Login */
+#login-container { height: 100vh; display: flex; justify-content: center; align-items: center; background: #2c3e50; }
+.card { background: white; padding: 2rem; border-radius: 8px; text-align: center; width: 90%; max-width: 350px; }
+input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+button { width: 100%; padding: 10px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; }
+
+/* Header & Sidebar */
+header { background: #34495e; color: white; padding: 15px; display: flex; justify-content: space-between; }
+.sidebar { height: 100vh; width: 250px; position: fixed; left: -250px; background: #2c3e50; transition: 0.3s; padding-top: 60px; z-index: 100; }
+.sidebar a { display: block; padding: 15px; color: white; text-decoration: none; border-bottom: 1px solid #34495e; cursor: pointer; }
+.sidebar.open { left: 0; }
+.admin-only { display: none; }
+
+/* Dashboard Widgets */
+.cash-widget { display: flex; justify-content: space-between; background: white; padding: 15px; margin: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
