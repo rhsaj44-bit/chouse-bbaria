@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সার্কিট হাউজ ম্যানেজমেন্ট</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <div id="login-container" class="container active-view">
+        <div class="card login-card">
+            <h2>লগইন</h2>
+            <input type="password" id="pin" placeholder="পিন নম্বর দিন" maxlength="4">
+            <button onclick="auth.login()">প্রবেশ করুন</button>
+            <p onclick="auth.recover()" class="link">পিন ভুলে গেছেন?</p>
+        </div>
+    </div>
+
+    <!-- App Section -->
+    <div id="app-container" class="container">
+        <header>
+            <span class="menu-btn" onclick="ui.toggleSidebar()">☰</span>
+            <h3 id="user-name">ইউজার</h3>
+        </header>
+
+        <nav id="sidebar" class="sidebar">
+            <a onclick="ui.showView('dashboard-view')">🏠 ড্যাশবোর্ড</a>
+            <a class="admin-only" onclick="ui.showView('reports-view')">📊 রিপোর্টস</a>
+            <a onclick="auth.logout()">🚪 লগআউট</a>
+        </nav>
+
+        <main id="main-content">
+            <div id="dashboard-view" class="view active-view">
+                <div class="cash-widget">
+                    <div>আজকের আয়: <strong id="daily-income">৳০</strong></div>
+                    <div>মাসিক আয়: <strong id="monthly-income">৳০</strong></div>
+                </div>
+                <!-- Table for Grid -->
+                <div class="grid-wrapper">
+                    <table id="room-grid"></table>
+                </div>
+            </div>
+
+            <div id="reports-view" class="view admin-only">
+                <h2>অ্যাডভান্সড রিপোর্ট</h2>
+                <!-- Analytics charts/tables will go here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
