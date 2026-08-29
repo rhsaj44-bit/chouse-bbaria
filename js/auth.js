@@ -3,7 +3,6 @@ const auth = {
         const pin = document.getElementById('pin').value;
         if (!pin) return alert("পিন দিন!");
         
-        // Loader/Spinner add here
         const res = await api.request({ action: "login", pin: pin });
         
         if (res && res.success) {
