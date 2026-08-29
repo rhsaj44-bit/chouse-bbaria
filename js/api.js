@@ -7,13 +7,14 @@ const api = {
             const response = await fetch(SCRIPT_URL, {
                 method: "POST",
                 headers: {
-                    "Content-type": "text/plain;charset=utf-8"
+                    "Content-Type": "text/plain;charset=utf-8"
+                }, // <--- এই কমাটি মিসিং ছিল
                 body: JSON.stringify(payload)
             });
             return await response.json();
         } catch (error) {
             console.error("API Error:", error);
-            alert("সার্ভার কানেকশন এরর!");
+            alert("সার্ভার কানেকশন এরর! কনসোল চেক করুন।");
         }
     }
 };
