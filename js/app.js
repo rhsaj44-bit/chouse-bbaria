@@ -1,12 +1,10 @@
 const app = {
-    // ড্যাশবোর্ডে রুমের গ্রিড তৈরি করা
     renderGrid() {
         const table = document.getElementById("room-grid");
         table.innerHTML = ""; 
         table.style.width = "100%";
         table.style.borderCollapse = "collapse";
         
-        // হেডার (তারিখ)
         let headerRow = document.createElement("tr");
         let th = document.createElement("th");
         th.innerText = "রুম নং";
@@ -28,7 +26,6 @@ const app = {
         }
         table.appendChild(headerRow);
 
-        // ২০ টি রুমের সারি তৈরি
         for(let r=1; r<=20; r++) {
             let tr = document.createElement("tr");
             let roomTd = document.createElement("td");
@@ -48,7 +45,6 @@ const app = {
                 cellTd.style.border = "1px solid #ddd";
                 cellTd.style.textAlign = "center";
                 
-                // ক্লিক করলে বুকিং পপ-আপ ওপেন হবে
                 cellTd.onclick = () => app.openBookingModal(r);
                 tr.appendChild(cellTd);
             }
@@ -56,7 +52,6 @@ const app = {
         }
     },
 
-    // বুকিং ফর্ম ওপেন করা
     openBookingModal(roomNo) {
         document.getElementById("modal-room-title").innerText = "বুকিং: রুম " + roomNo;
         document.getElementById("modal-room-no").value = roomNo;
@@ -64,7 +59,6 @@ const app = {
         document.getElementById("modal-overlay").style.display = "block";
     },
 
-    // বুকিং ফর্ম ক্লোজ করা
     closeModal() {
         document.getElementById("booking-modal").style.display = "none";
         document.getElementById("modal-overlay").style.display = "none";
@@ -72,7 +66,6 @@ const app = {
         document.getElementById("guest-office").value = "";
     },
 
-    // বুকিং সার্ভারে (গুগল শিটে) পাঠানো
     async submitBooking() {
         const payload = {
             roomNo: document.getElementById("modal-room-no").value,
@@ -86,17 +79,15 @@ const app = {
             return alert("নাম এবং অফিস/ঠিকানা অবশ্যই দিতে হবে!");
         }
 
-        // api.js এর মাধ্যমে Apps Script এ রিকোয়েস্ট পাঠানো
         const res = await api.request({ action: "bookRoom", payload: payload });
         
         if(res && res.success) {
-            alert("বুকিং সফল হয়েছে!");
+            alert("বুকিং সফল হয়েছে!");
             app.closeModal();
         } else {
-            alert("বুকিং ব্যর্থ হয়েছে। আবার চেষ্টা করুন।");
+            alert("বুকিং ব্যর্থ হয়েছে। আবার চেষ্টা করুন।");
         }
     }
 };
 
-// অ্যাপ চালু হলে গ্রিড লোড হবে (ui.js এর initApp থেকে এটি কল করা যায়, ডেমোর জন্য অটো লোড দেওয়া হলো)
 setTimeout(() => { app.renderGrid(); }, 500);
