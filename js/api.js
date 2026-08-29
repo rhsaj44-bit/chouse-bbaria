@@ -6,6 +6,8 @@ const api = {
         try {
             const response = await fetch(SCRIPT_URL, {
                 method: "POST",
+                headers: {
+                    "Content-type": "text/plain;charset=utf-8"
                 body: JSON.stringify(payload)
             });
             return await response.json();
