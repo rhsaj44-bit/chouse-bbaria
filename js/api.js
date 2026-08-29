@@ -1,4 +1,3 @@
-// Apps Script-এর Web App URL এখানে বসান
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbynFzoGCFwEU9FbXJcEaLSxiv74VpLOHTsx5JzDPfAqW0iTgTgaXyZVF-VZwwUJw58/exec";
 
 const api = {
@@ -8,7 +7,7 @@ const api = {
                 method: "POST",
                 headers: {
                     "Content-Type": "text/plain;charset=utf-8"
-                }, // <--- এই কমাটি মিসিং ছিল
+                },
                 body: JSON.stringify(payload)
             });
             return await response.json();
